@@ -1,0 +1,10 @@
+import matplotlib.pyplot as plt
+import numpy as np
+
+#iki resmin aynı boyutta ve formatta olduğuna dikkat edin
+
+
+img_1=plt.imread("t1.jpg")
+img_2=plt.imread("t2.jpg")
+plt.imshow(img_2-img_1)
+plt.show()
