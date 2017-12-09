@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import matplotlib.image as mypimg
 import numpy as np
 
-img=mypimg.imread(r'C:\Users\kübra\Desktop\stinkbug.png')  #resmi okuma
+img=mypimg.imread(r'C:\Users\belgeler\Desktop\stinkbug.png')  #resmi okuma
 
 img.ndim
 # 3
