@@ -1,0 +1,23 @@
+import numpy as np
+from scipy.ndimage import imread as imread
+import matplotlib.pyplot as plt
+import myutils
+img = myutils.convert_RGB_to_BW( imread('bug.png'),190)
+plt.imshow(img, cmap='gray')
+plt.show()
+def applyTransform(img,mask):
+ new_img = np.zeros([img.shape[0],img.shape[1]]).astype(np.float32)
+ for i in range(img.shape[0]):
+ for j in range(img.shape[1]):
+ new_i = sum(mask[0] * np.array([i,j])) # -1 * j
+ new_j = sum(mask[1] * np.array([i,j])) #1 * i
+ new_img[new_i, new_j] = img[i,j]
+ return new_img
+ new_img = np.zeros([img.shape[0]*2, img.shape[1]*2])
+mask = np.array([[0,-1],[1,0]])
+# mask = np.array([[1,0],[0,1]])
+converted_img= applyTransform(img,mask)
+new_img[0:img.shape[0],0:img.shape[1]]=converted_img
+new_img[img.shape[0]:,img.shape[1]:] = img
+plt.imshow(new_img, cmap='gray')
+plt.show()
